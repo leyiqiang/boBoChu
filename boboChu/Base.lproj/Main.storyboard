@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="boboChu" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="A7J-Md-6ec">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="EQF-3H-vsC">
+                                <rect key="frame" x="0.0" y="543" width="340" height="65"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NwL-6o-UMT" userLabel="buttonBigBo">
+                                        <rect key="frame" x="0.0" y="0.0" width="64" height="65"/>
+                                        <state key="normal" image="button-big-bo"/>
+                                        <connections>
+                                            <action selector="bigBoSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8Fp-OH-CX2"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E4k-74-rMB" userLabel="buttonBo">
+                                        <rect key="frame" x="69" y="0.0" width="64" height="65"/>
+                                        <state key="normal" image="button-bo"/>
+                                        <connections>
+                                            <action selector="boSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NhF-Ib-XRd"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lMZ-rE-hUT" userLabel="buttonChu">
+                                        <rect key="frame" x="138" y="0.0" width="64" height="65"/>
+                                        <state key="normal" image="button-chu"/>
+                                        <connections>
+                                            <action selector="chuSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uqo-6n-fjB"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fle-zu-EMY" userLabel="buttonBlock">
+                                        <rect key="frame" x="207" y="0.0" width="64" height="65"/>
+                                        <state key="normal" image="button-block"/>
+                                        <connections>
+                                            <action selector="blockSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NkM-N4-Ieh"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bNt-lk-YPU" userLabel="buttonSuperBlock">
+                                        <rect key="frame" x="276" y="0.0" width="64" height="65"/>
+                                        <state key="normal" image="button-super-block"/>
+                                        <connections>
+                                            <action selector="superBlockSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hjp-C4-SSL"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="enemy-body" translatesAutoresizingMaskIntoConstraints="NO" id="bFc-0M-AHO" userLabel="enemyBody">
+                                <rect key="frame" x="66" y="111" width="243" height="251"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OoP-7u-DgQ" userLabel="status">
+                                <rect key="frame" x="159" y="349" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u23-uM-OPx" userLabel="enemyActionPrompt">
+                                <rect key="frame" x="267" y="243" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MGs-Lx-V4V" userLabel="playAgainButton">
+                                <rect key="frame" x="145" y="408" width="71" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Play Again"/>
+                                <connections>
+                                    <action selector="playAgainSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vMm-oh-Mte"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wMu-ds-y9a" userLabel="playerActionPrompt">
+                                <rect key="frame" x="290" y="412" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="bigBoButton" destination="EQF-3H-vsC" id="mNT-wN-xir"/>
+                        <outlet property="blockButton" destination="EQF-3H-vsC" id="ug5-Wj-s2n"/>
+                        <outlet property="boButton" destination="EQF-3H-vsC" id="egg-BR-hvo"/>
+                        <outlet property="chuButton" destination="EQF-3H-vsC" id="jgC-H9-DPT"/>
+                        <outlet property="enemyActionPrompt" destination="u23-uM-OPx" id="yfi-M3-ohf"/>
+                        <outlet property="gameStatus" destination="OoP-7u-DgQ" id="Oi3-Gm-sTL"/>
+                        <outlet property="playAgainButton" destination="MGs-Lx-V4V" id="seU-yW-B1A"/>
+                        <outlet property="playerActionPrompt" destination="wMu-ds-y9a" id="URf-rS-Cbj"/>
+                        <outlet property="superBlockButton" destination="EQF-3H-vsC" id="p7t-rl-ciZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="40.799999999999997" y="25.637181409295355"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="background" width="375" height="800"/>
+        <image name="button-big-bo" width="64" height="65"/>
+        <image name="button-block" width="64" height="65"/>
+        <image name="button-bo" width="64" height="65"/>
+        <image name="button-chu" width="64" height="64"/>
+        <image name="button-super-block" width="64" height="65"/>
+        <image name="enemy-body" width="1668" height="2224"/>
+    </resources>
+</document>
