@@ -10,6 +10,6 @@ import Foundation
 // game state is one of: start, play, lose, win (and tutorial?)
 
 enum GameState {
-    case start, play, win, lose
+    case play, win, lose
     
 }

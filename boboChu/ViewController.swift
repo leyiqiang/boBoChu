@@ -16,29 +16,121 @@ class ViewController: UIViewController {
     @IBOutlet weak var superBlockButton: UIButton!
     @IBOutlet weak var gameStatus: UILabel!
     @IBOutlet weak var playerActionPrompt: UILabel!
-    @IBOutlet weak var enemyActionPrompt: UILabel!
+    @IBOutlet weak var opponentActionPrompt: UILabel!
     @IBOutlet weak var playAgainButton: UIButton!
-    var opponentChuCount: Int!
-    var playerChuCount: Int!
+    @IBOutlet weak var countDownLabel: UILabel!
+    
+    var opponentChuCount: Int! = 0
+    var playerChuCount: Int! = 0
+    var countDownSeconds = 3
+    var timer = Timer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         resetBoard()
         // Do any additional setup after loading the view, typically from a nib.
 //        self.view.backgroundColor = UIColor(patternImage: UIImage(named:"background")!)
+
     }
+    
+    func runCountDown() {
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateCountDown), userInfo: nil, repeats: true)
+        
+    }
+    
+    @objc func updateCountDown() {
+        countDownSeconds -= 1
+        if countDownSeconds < 0 {
+            resetCountDown()
+            play(Sign.chu)
+        } else {
+            countDownLabel.text = String(countDownSeconds)
+        }
+    }
+    
+    func resetCountDown() {
+        timer.invalidate()
+        runCountDown()
+        countDownSeconds = 3
+        countDownLabel.text = String(countDownSeconds)
+    }
+    
     func resetBoard() {
         playerActionPrompt.text = ""
-        enemyActionPrompt.text = ""
+        opponentActionPrompt.text = ""
         gameStatus.text = ""
         playAgainButton.isEnabled = false
         playAgainButton.isHidden = true
-        
+        playerChuCount = 0
+        opponentChuCount = 0
+        enableActionButtonsOnChuCount()
+        resetCountDown()
+    }
+    
+    func setActionPrompt(_ action:Sign, isOpponent: Bool) {
+        switch action {
+        case .bigBo:
+            if isOpponent {
+                opponentActionPrompt.text = "大波!"
+            } else {
+                playerActionPrompt.text = "大波!"
+            }
+        case .bo:
+            if isOpponent {
+                opponentActionPrompt.text = "波!"
+            } else {
+                playerActionPrompt.text = "波!"
+            }
+        case .chu:
+            if isOpponent {
+                opponentActionPrompt.text = "储!"
+            } else {
+                playerActionPrompt.text = "储!"
+            }
+        case .superBlock:
+            if isOpponent {
+                opponentActionPrompt.text = "超防!"
+            } else {
+                playerActionPrompt.text = "超防!"
+            }
+        case .block:
+            if isOpponent {
+                opponentActionPrompt.text = "防!"
+            } else {
+                playerActionPrompt.text = "防!"
+            }
+        }
+    }
+    
+    func disableAllActionButtons() {
+        bigBoButton.isEnabled = false
+        boButton.isEnabled = false
+        chuButton.isEnabled = false
+        blockButton.isEnabled = false
+        superBlockButton.isEnabled = false
+    }
+    
+    func enableAllActionButtons() {
         bigBoButton.isEnabled = true
         boButton.isEnabled = true
         chuButton.isEnabled = true
         blockButton.isEnabled = true
         superBlockButton.isEnabled = true
+    }
+    
+    func enableActionButtonsOnChuCount() {
+        chuButton.isEnabled = true
+        blockButton.isEnabled = true
+        bigBoButton.isEnabled = false
+        boButton.isEnabled = false
+        superBlockButton.isEnabled = false
+        if playerChuCount >= 1 {
+            boButton.isEnabled = true
+            superBlockButton.isEnabled = true
+        }
+        if playerChuCount >= 2 {
+            bigBoButton.isEnabled = true
+        }
     }
     
     func randomAction() -> Sign {
@@ -53,7 +145,6 @@ class ViewController: UIViewController {
             let actions = [Sign.bo, Sign.chu, Sign.block, Sign.superBlock, Sign.bigBo]
             selectedAction = actions.randomElement()!
         }
-        calculateChuCount(selectedAction, isOppnent: true)
         return selectedAction
     }
     
@@ -89,8 +180,29 @@ class ViewController: UIViewController {
     }
     
     func play(_ playerTurn:Sign) {
-        let opponent = randomAction()
-        
+        disableAllActionButtons()
+        let opponentTurn = randomAction()
+        calculateChuCount(playerTurn, isOppnent: false)
+        calculateChuCount(opponentTurn, isOppnent: true)
+        setActionPrompt(playerTurn, isOpponent: false)
+        setActionPrompt(opponentTurn, isOpponent: true)
+        resetCountDown()
+        let gameState = playerTurn.takeTurn(opponentTurn)
+        switch gameState {
+        case .play:
+            gameStatus.text = ""
+            enableActionButtonsOnChuCount()
+        case .lose:
+            gameStatus.text = "你输了."
+            playAgainButton.isHidden = false
+            playAgainButton.isEnabled = true
+            timer.invalidate()
+        case .win:
+            gameStatus.text = "你赢了."
+            playAgainButton.isHidden = false
+            playAgainButton.isEnabled = true
+            timer.invalidate()
+        }
     }
     
     @IBAction func playAgainSelected(_ sender: Any) {

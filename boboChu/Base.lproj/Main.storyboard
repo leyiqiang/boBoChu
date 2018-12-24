@@ -18,11 +18,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="A7J-Md-6ec">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="A7J-Md-6ec">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="A7J-Md-6ec" secondAttribute="height" multiplier="375:667" id="RBd-92-w4w"/>
+                                </constraints>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="EQF-3H-vsC">
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="EQF-3H-vsC" userLabel="playerButtons">
                                 <rect key="frame" x="0.0" y="543" width="340" height="65"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -58,7 +60,7 @@
                                         <rect key="frame" x="276" y="0.0" width="64" height="65"/>
                                         <state key="normal" image="button-super-block"/>
                                         <connections>
-                                            <action selector="superBlockSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hjp-C4-SSL"/>
+                                            <action selector="superBlockSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MTa-8F-dEc"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -67,14 +69,7 @@
                                 <rect key="frame" x="66" y="111" width="243" height="251"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OoP-7u-DgQ" userLabel="status">
-                                <rect key="frame" x="159" y="349" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u23-uM-OPx" userLabel="enemyActionPrompt">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u23-uM-OPx" userLabel="opponentActionPrompt">
                                 <rect key="frame" x="267" y="243" width="42" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -96,20 +91,35 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OoP-7u-DgQ" userLabel="status">
+                                <rect key="frame" x="145" y="352" width="84" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eTi-CX-Zfu" userLabel="countDown">
+                                <rect key="frame" x="177" y="75" width="39" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="bigBoButton" destination="EQF-3H-vsC" id="mNT-wN-xir"/>
-                        <outlet property="blockButton" destination="EQF-3H-vsC" id="ug5-Wj-s2n"/>
-                        <outlet property="boButton" destination="EQF-3H-vsC" id="egg-BR-hvo"/>
-                        <outlet property="chuButton" destination="EQF-3H-vsC" id="jgC-H9-DPT"/>
-                        <outlet property="enemyActionPrompt" destination="u23-uM-OPx" id="yfi-M3-ohf"/>
+                        <outlet property="bigBoButton" destination="NwL-6o-UMT" id="HFB-xj-Iyt"/>
+                        <outlet property="blockButton" destination="fle-zu-EMY" id="Lzh-Ap-IXf"/>
+                        <outlet property="boButton" destination="E4k-74-rMB" id="lHC-bg-ehl"/>
+                        <outlet property="chuButton" destination="lMZ-rE-hUT" id="8AY-8z-PXG"/>
+                        <outlet property="countDownLabel" destination="eTi-CX-Zfu" id="jmI-Z0-7ac"/>
                         <outlet property="gameStatus" destination="OoP-7u-DgQ" id="Oi3-Gm-sTL"/>
+                        <outlet property="opponentActionPrompt" destination="u23-uM-OPx" id="cnq-H1-9VD"/>
                         <outlet property="playAgainButton" destination="MGs-Lx-V4V" id="seU-yW-B1A"/>
                         <outlet property="playerActionPrompt" destination="wMu-ds-y9a" id="URf-rS-Cbj"/>
-                        <outlet property="superBlockButton" destination="EQF-3H-vsC" id="p7t-rl-ciZ"/>
+                        <outlet property="superBlockButton" destination="bNt-lk-YPU" id="eNu-vd-H8R"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
