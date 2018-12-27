@@ -19,6 +19,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var opponentActionPrompt: UILabel!
     @IBOutlet weak var playAgainButton: UIButton!
     @IBOutlet weak var countDownLabel: UILabel!
+    @IBOutlet weak var menuButton: UIButton!
     
     var opponentChuCount: Int! = 0
     var playerChuCount: Int! = 0
@@ -61,6 +62,8 @@ class ViewController: UIViewController {
         gameStatus.text = ""
         playAgainButton.isEnabled = false
         playAgainButton.isHidden = true
+        menuButton.isEnabled = false
+        menuButton.isHidden = true
         playerChuCount = 0
         opponentChuCount = 0
         enableActionButtonsOnChuCount()
@@ -116,6 +119,14 @@ class ViewController: UIViewController {
         chuButton.isEnabled = true
         blockButton.isEnabled = true
         superBlockButton.isEnabled = true
+    }
+    
+    func setupGameOver() {
+        playAgainButton.isHidden = false
+        playAgainButton.isEnabled = true
+        menuButton.isHidden = false
+        menuButton.isEnabled = true
+        timer.invalidate()
     }
     
     func enableActionButtonsOnChuCount() {
@@ -194,14 +205,10 @@ class ViewController: UIViewController {
             enableActionButtonsOnChuCount()
         case .lose:
             gameStatus.text = "你输了."
-            playAgainButton.isHidden = false
-            playAgainButton.isEnabled = true
-            timer.invalidate()
+            setupGameOver()
         case .win:
             gameStatus.text = "你赢了."
-            playAgainButton.isHidden = false
-            playAgainButton.isEnabled = true
-            timer.invalidate()
+            setupGameOver()
         }
     }
     

@@ -14,6 +14,8 @@
 		90FF80DD21D07C1D00F490D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90FF80DB21D07C1D00F490D7 /* LaunchScreen.storyboard */; };
 		90FF80E521D07C6B00F490D7 /* Sign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FF80E421D07C6B00F490D7 /* Sign.swift */; };
 		90FF80E721D07CA300F490D7 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FF80E621D07CA300F490D7 /* GameState.swift */; };
+		90FF80E921D4F41800F490D7 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FF80E821D4F41800F490D7 /* MenuViewController.swift */; };
+		90FF80EB21D4F63300F490D7 /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FF80EA21D4F63300F490D7 /* TutorialViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		90FF80DE21D07C1D00F490D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		90FF80E421D07C6B00F490D7 /* Sign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sign.swift; sourceTree = "<group>"; };
 		90FF80E621D07CA300F490D7 /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
+		90FF80E821D4F41800F490D7 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		90FF80EA21D4F63300F490D7 /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,12 +64,14 @@
 			children = (
 				90FF80D221D07C1C00F490D7 /* AppDelegate.swift */,
 				90FF80D421D07C1C00F490D7 /* ViewController.swift */,
+				90FF80E821D4F41800F490D7 /* MenuViewController.swift */,
 				90FF80D621D07C1C00F490D7 /* Main.storyboard */,
 				90FF80D921D07C1D00F490D7 /* Assets.xcassets */,
 				90FF80DB21D07C1D00F490D7 /* LaunchScreen.storyboard */,
 				90FF80DE21D07C1D00F490D7 /* Info.plist */,
 				90FF80E421D07C6B00F490D7 /* Sign.swift */,
 				90FF80E621D07CA300F490D7 /* GameState.swift */,
+				90FF80EA21D4F63300F490D7 /* TutorialViewController.swift */,
 			);
 			path = boboChu;
 			sourceTree = "<group>";
@@ -142,8 +148,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				90FF80D521D07C1C00F490D7 /* ViewController.swift in Sources */,
+				90FF80E921D4F41800F490D7 /* MenuViewController.swift in Sources */,
 				90FF80E721D07CA300F490D7 /* GameState.swift in Sources */,
 				90FF80D321D07C1C00F490D7 /* AppDelegate.swift in Sources */,
+				90FF80EB21D4F63300F490D7 /* TutorialViewController.swift in Sources */,
 				90FF80E521D07C6B00F490D7 /* Sign.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -293,6 +301,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RMAT6LXPAJ;
 				INFOPLIST_FILE = boboChu/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -311,6 +320,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RMAT6LXPAJ;
 				INFOPLIST_FILE = boboChu/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
