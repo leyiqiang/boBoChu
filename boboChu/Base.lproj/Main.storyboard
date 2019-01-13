@@ -13,7 +13,7 @@
         <!--Menu View Controller-->
         <scene sceneID="87p-iL-QxA">
             <objects>
-                <viewController id="luQ-M5-C8v" customClass="MenuViewController" customModule="boboChu" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="luQ-M5-C8v" customClass="MenuViewController" customModule="boboChu" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bEx-xQ-UjV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -94,7 +94,7 @@
         <!--Tutorial View Controller-->
         <scene sceneID="vgk-xh-vS6">
             <objects>
-                <viewController id="aZZ-2m-DdT" customClass="TutorialViewController" customModule="boboChu" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TutorialPage" id="aZZ-2m-DdT" customClass="TutorialViewController" customModule="boboChu" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XwP-tl-NcF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -11,5 +11,4 @@ import Foundation
 
 enum GameState {
     case play, win, lose
-    
 }
